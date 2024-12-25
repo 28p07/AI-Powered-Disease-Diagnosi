@@ -1,0 +1,160 @@
+{% extends 'main.html' %}
+{% block content %}
+<style>
+body {
+    font-family: Cambria, serif;
+    height: 100%;
+    background-image: linear-gradient(#98FF98, #d3f7d9);
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1 {
+    color: rgb(58, 10, 10);
+    font-size: 36px;
+    margin-top: 30px;
+}
+
+.card {
+    border: 1px solid #682020;
+    background-color: #f7f9fc;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.form-group input[type="text"] {
+    border: 1px solid #4e0374;
+    background-color: #d1f7e2;
+    color: #4e0374;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus {
+    background-color: #e7f9f1;
+    outline: none;
+    box-shadow: 0 0 5px #4e0374;
+}
+
+.form-group label {
+    font-size: 18px;
+    color: #4e0374;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="submit"] {
+    background-color: #4e0374;
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #471010;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    input[type="submit"] {
+        width: 100%;
+    }
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.col-md-6 {
+    max-width: 900px;
+}
+</style>
+
+<div class="row center-content">
+    <div class="col-md-6">
+        <center><h1>Diabetes Predictor</h1></center>
+        <div class="card card-body">
+            <form class="form-horizontal" action="{{ url_for('predictPage') }}" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Pregnancies">No. of Pregnancies</label>
+                        <input type="text" name="Pregnancies" placeholder="No. of Pregnancies">
+                    </div>
+                    <div class="form-group">
+                        <label for="Glucose">Glucose</label>
+                        <input type="text" name="Glucose" placeholder="Glucose">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="BloodPressure">Blood Pressure (in mmHg)</label>
+                        <input type="text" name="BloodPressure" placeholder="Blood Pressure (in mmHg)">
+                    </div>
+                    <div class="form-group">
+                        <label for="SkinThickness">Skin Thickness (in mm)</label>
+                        <input type="text" name="SkinThickness" placeholder="Skin Thickness (in mm)">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Insulin">Insulin (in µU/ml)</label>
+                        <input type="text" name="Insulin" placeholder="Insulin (in µU/ml)">
+                    </div>
+                    <div class="form-group">
+                        <label for="BMI">BMI</label>
+                        <input type="text" name="BMI" placeholder="BMI">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
+                        <input type="text" name="DiabetesPedigreeFunction" placeholder="Diabetes Pedigree Function">
+                    </div>
+                    <div class="form-group">
+                        <label for="Age">Age (in years)</label>
+                        <input type="text" name="Age" placeholder="Age (in years)">
+                    </div>
+                </div>
+
+                <input type="submit" class="btn btn-info btn-block" value="Predict">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

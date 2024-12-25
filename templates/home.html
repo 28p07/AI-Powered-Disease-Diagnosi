@@ -1,0 +1,231 @@
+{% extends 'main.html' %}
+{% block content %}
+{% if message %}
+    <div class="alert alert-danger">{{ message }}</div>
+{% endif %}
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f9fc; /* Light Gray background */
+        margin: 0;
+        padding: 0;
+    }
+    h1, h2, h3 {
+        text-align: center;
+        color: #031424; /* Deep Navy for headings */
+        margin-bottom: 30px;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .logo-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    .logo-title img {
+        width: 80px; /* Adjust the size of the logo */
+        margin-right: 15px;
+    }
+    .logo-title h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 3rem;
+        color: #2d183f; 
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin: 0;
+    }
+    .card {
+        background-color: hsl(0, 0%, 100%);
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+        border-left: 5px solid #7db77d; /* Blood Red left border */
+    }
+    .card-header {
+        background-color: #7db77d; /* Blood Red header */
+        color: #f5f5f5; /* Light Gray Text */
+        font-size: 1.5rem;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    .card-body {
+        padding: 20px;
+        color: #031424; /* Deep Navy for the text */
+        font-size: 1.1rem;
+    }
+    .card-footer {
+        background-color: #f1f1f1;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 0.9rem;
+        color: #555;
+    }
+    .card-list {
+        list-style-type: none;
+        padding: 0;
+    }
+    .card-list li {
+        background-color: #f7f7f7;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    .symptoms {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+    .disease-info {
+        font-size: 0.9rem;
+        color: #555;
+    }
+    .row {
+        margin-bottom: 15px;
+    }
+    .disease-image {
+        width: 100%;
+        max-height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+</style>
+
+<div class="container">
+    <!-- Logo and Title -->
+    <div class="logo-title">
+        <img src="{{ url_for('static', filename='logo_1.png') }}" alt="MedScan360 Logo">
+        <h1>MedScan360</h1>
+    </div>
+    <h2>Disease Information</h2>
+
+    <!-- Diabetes -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/diabetes.jpg') }}" alt="Diabetes" class="disease-image">
+                <div class="card-header">Diabetes</div>
+                <div class="card-body disease-info">
+                    <p>Diabetes affects how your body processes glucose. Left untreated, it can cause serious health problems.</p>
+                    <ul class="symptoms">
+                        <li>Increased thirst and urination</li>
+                        <li>Extreme hunger and weight loss</li>
+                        <li>Blurred vision</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heart Disease -->
+        <div class="col-md-6">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/heart.jpg') }}" alt="Heart Disease" class="disease-image">
+                <div class="card-header">Heart Disease</div>
+                <div class="card-body disease-info">
+                    <p>Heart disease refers to various conditions that affect the heart, including arrhythmias and coronary artery disease.</p>
+                    <ul class="symptoms">
+                        <li>Chest pain and palpitations</li>
+                        <li>Shortness of breath</li>
+                        <li>Dizziness and sweating</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breast Cancer -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/breastcancer.jpg') }}" alt="Breast Cancer" class="disease-image">
+                <div class="card-header">Breast Cancer</div>
+                <div class="card-body disease-info">
+                    <p>Breast cancer is a common type of cancer that can develop in both men and women, primarily affecting women.</p>
+                    <ul class="symptoms">
+                        <li>New lump or thickening in the breast</li>
+                        <li>Redness or skin irritation</li>
+                        <li>Pain or pulling of the nipple</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kidney Disease -->
+        <div class="col-md-6">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/kidney.jpg') }}">
+                <div class="card-header">Chronic Kidney Disease</div>
+                <div class="card-body disease-info">
+                    <p>Chronic kidney disease can damage your kidneys slowly, leading to waste buildup in your body.</p>
+                    <ul class="symptoms">
+                        <li>Fatigue and nausea</li>
+                        <li>Muscle cramps</li>
+                        <li>Loss of appetite</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Liver Disease -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/liver.jpg') }}" alt="Liver Disease" class="disease-image">
+                <div class="card-header">Liver Disease</div>
+                <div class="card-body disease-info">
+                    <p>Liver disease encompasses a range of liver conditions, including cirrhosis and hepatitis.</p>
+                    <ul class="symptoms">
+                        <li>Abdominal pain</li>
+                        <li>Unexplained bruising</li>
+                        <li>Fatigue and nausea</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Malaria -->
+        <div class="col-md-6">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/malaria.jpg') }}" alt="Malaria" class="disease-image">
+                <div class="card-header">Malaria</div>
+                <div class="card-body disease-info">
+                    <p>Malaria is caused by parasites transmitted through mosquito bites and can lead to severe health complications.</p>
+                    <ul class="symptoms">
+                        <li>Fever and chills</li>
+                        <li>Headache and fatigue</li>
+                        <li>Nausea and vomiting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pneumonia -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/pneumonia.jpg') }}" alt="Pneumonia" class="disease-image">
+                <div class="card-header">Pneumonia</div>
+                <div class="card-body disease-info">
+                    <p>Pneumonia is an infection that causes inflammation of the lungs. It can cause severe respiratory issues if left untreated.</p>
+                    <ul class="symptoms">
+                        <li>Cough with mucus</li>
+                        <li>High fever and fatigue</li>
+                        <li>Chest pain and sore throat</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
